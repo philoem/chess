@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import styles from './index.module.css'
+import GameBoard from '~/components/GameBoard';
 
 export default component$(() => {
   const players = ['player1', 'player2'];
@@ -21,6 +22,7 @@ export default component$(() => {
         <br />
         Go
       </p>
+      <GameBoard />
     </>
   );
 });
