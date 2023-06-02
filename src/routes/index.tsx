@@ -1,9 +1,15 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import Home from './Home';
+import GameBoard from './GameBoard';
 
 export default component$(() => {
-  return  <Home />;
+  return (
+    <>
+      <Home />
+      <GameBoard />
+    </>
+  );
 });
 
 export const head: DocumentHead = {
