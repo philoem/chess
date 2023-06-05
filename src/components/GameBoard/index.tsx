@@ -1,9 +1,12 @@
-import { component$} from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import {useKickOff} from './hooks/useKickOff';
 import styles from './index.module.css';
+import { useDraggable } from './hooks/useDraggable';
 
 export default component$(() => {
   const allPieces = useKickOff();
+  const draggedPiece = useSignal(null);
+  const dragNdrop = useDraggable({ draggedPiece, position: 0 });
 
   return (
     <div class={styles.container}>
@@ -13,8 +16,16 @@ export default component$(() => {
           if(row % 2 === 0) {
             return (
               <>  
-                {index % 2 === 0 ? <div class={`${styles.square} ${styles.lightSquare}`} key={index}>{piece}</div> : 
-                <div class={`${styles.square} ${styles.darkSquare}`} key={index}>
+                {index % 2 === 0 ? <div class={`${styles.square} ${styles.lightSquare}`} key={index}
+                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
+                  onDragOver$={(e) => dragNdrop.dragOver(e)}
+                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  {piece}
+                </div> : 
+                <div class={`${styles.square} ${styles.darkSquare}`} key={index}
+                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
+                  onDragOver$={(e) => dragNdrop.dragOver(e)}
+                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
                   {piece}
                 </div>}
               </>
@@ -22,8 +33,18 @@ export default component$(() => {
           } else if(row % 2 !== 0) {
             return (
               <>
-                {index % 2 === 0 ? <div class={`${styles.square} ${styles.darkSquare}`} key={index}>{piece}</div> : 
-                <div class={`${styles.square} ${styles.lightSquare}`} key={index}>{piece}</div>}
+                {index % 2 === 0 ? <div class={`${styles.square} ${styles.darkSquare}`} key={index}
+                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
+                  onDragOver$={(e) => dragNdrop.dragOver(e)}
+                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  {piece}
+                </div> : 
+                <div class={`${styles.square} ${styles.lightSquare}`} key={index} 
+                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
+                  onDragOver$={(e) => dragNdrop.dragOver(e)}
+                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  {piece}
+                </div>}
               </>
             )
           } 
