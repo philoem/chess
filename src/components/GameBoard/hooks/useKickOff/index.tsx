@@ -1,4 +1,4 @@
-import { useStore, useSignal, $ } from '@builder.io/qwik';
+import { useStore, useSignal } from '@builder.io/qwik';
 import Bishop from '~/assets/pieces/Bishop';
 import King from '~/assets/pieces/King';
 import Knight from '~/assets/pieces/Knight';

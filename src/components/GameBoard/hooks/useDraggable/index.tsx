@@ -1,8 +1,8 @@
 import { $ } from '@builder.io/qwik';
 
-export function useDraggable({ draggedPiece, position }: any) {
+export function useDraggable({ draggedPiece }: any) {
 
-  const dragStart = $((e: { target: any; }, position: any)=>{
+  const dragStart = $((e: { target: any; })=>{
     draggedPiece.value = e.target;
   });
   const dragOver = $((e: { preventDefault: () => void; }) =>{

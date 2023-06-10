@@ -4,9 +4,9 @@ import styles from './index.module.css';
 import { useDraggable } from './hooks/useDraggable';
 
 export default component$(() => {
-  const allPieces = useKickOff();
   const draggedPiece = useSignal(null);
-  const dragNdrop = useDraggable({ draggedPiece, position: 0 });
+  const allPieces = useKickOff();
+  const { dragStart, dragOver, dragDrop } = useDraggable({ draggedPiece });
 
   return (
     <div class={styles.container}>
@@ -17,15 +17,15 @@ export default component$(() => {
             return (
               <>  
                 {index % 2 === 0 ? <div class={`${styles.square} ${styles.lightSquare}`} key={index}
-                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
-                  onDragOver$={(e) => dragNdrop.dragOver(e)}
-                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  onDragStart$={(e) => dragStart(e)} 
+                  onDragOver$={(e) => dragOver(e)}
+                  onDrop$={(e) => dragDrop(e)}>
                   {piece}
                 </div> : 
                 <div class={`${styles.square} ${styles.darkSquare}`} key={index}
-                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
-                  onDragOver$={(e) => dragNdrop.dragOver(e)}
-                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  onDragStart$={(e) => dragStart(e)} 
+                  onDragOver$={(e) => dragOver(e)}
+                  onDrop$={(e) => dragDrop(e)}>
                   {piece}
                 </div>}
               </>
@@ -34,15 +34,15 @@ export default component$(() => {
             return (
               <>
                 {index % 2 === 0 ? <div class={`${styles.square} ${styles.darkSquare}`} key={index}
-                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
-                  onDragOver$={(e) => dragNdrop.dragOver(e)}
-                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  onDragStart$={(e) => dragStart(e)} 
+                  onDragOver$={(e) => dragOver(e)}
+                  onDrop$={(e) => dragDrop(e)}>
                   {piece}
                 </div> : 
                 <div class={`${styles.square} ${styles.lightSquare}`} key={index} 
-                  onDragStart$={(e) => dragNdrop.dragStart(e, index)} 
-                  onDragOver$={(e) => dragNdrop.dragOver(e)}
-                  onDrop$={(e) => dragNdrop.dragDrop(e)}>
+                  onDragStart$={(e) => dragStart(e)} 
+                  onDragOver$={(e) => dragOver(e)}
+                  onDrop$={(e) => dragDrop(e)}>
                   {piece}
                 </div>}
               </>
