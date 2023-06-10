@@ -25,6 +25,7 @@
   font-size: 12px;
   font-weight: bold;
   color: white;
+  z-index: 5;
 }
 
 /* Positionne les lettres sur le bord inférieur */
@@ -38,6 +39,7 @@
   font-size: 11px;
   font-weight: bold;
   color: white;
+  z-index: 5;
 }
 
 
@@ -56,6 +58,7 @@
   justify-content: center;
   align-items: center;
   float: left;
+  z-index: 10;
 }
 
 .lightSquare {
