@@ -8,10 +8,38 @@
 .board {
   width: 480px;
   height: 480px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-bottom: 12px;
   background-color: lightslategray;
 }
+
+/* Positionne les chiffres sur le bord gauche */
+.board .numbers {
+  position: absolute;
+  width: 0px;
+  height: 480px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  justify-content: space-around;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Positionne les lettres sur le bord inférieur */
+.board .letters {
+  position: absolute;
+  width: 480px;
+  height: 492px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+}
+
 
 .info {
   color: blanchedalmond;
