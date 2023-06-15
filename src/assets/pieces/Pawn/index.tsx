@@ -1,13 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 
 export default component$(
-	({
-		size,
-		color,
-		draggable,
-		outputRef
-		// rome-ignore lint/suspicious/noExplicitAny: <explanation>
-	}: { size: string; color: string; draggable: boolean; outputRef: any }) => {
+	({ size, color, draggable, outputRef }: { size: string; color: string; draggable: boolean; outputRef: any }) => {
 		return (
 			<div draggable={draggable} ref={outputRef}>
 				<svg xmlns='http://www.w3.org/2000/svg' height={size} viewBox='0 0 320 512'>

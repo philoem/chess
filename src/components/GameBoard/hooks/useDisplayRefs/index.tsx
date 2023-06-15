@@ -5,7 +5,6 @@ export function useDisplayRefs() {
 	 * @return {array} An array of numbers from 1 to 8.
 	 */
 
-	// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 	const numbersDisplayed = (): Array<any> => {
 		const numbers = [];
 		for (let i = 1; i <= 8; i++) {

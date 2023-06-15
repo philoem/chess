@@ -1,7 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 
 export default component$(
-	// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 	({ size, color, draggable, outputRef }: { size: string; color: string; draggable: boolean; outputRef: any }) => {
 		return (
 			<div draggable={draggable} ref={outputRef}>

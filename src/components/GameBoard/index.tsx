@@ -18,7 +18,6 @@ export default component$(() => {
 						<div key={number}>{number}</div>
 					))}
 				</div>
-				{/* rome-ignore lint/suspicious/noExplicitAny: <explanation> */}
 				{allPieces.map((piece: any, index) => {
 					const row = Math.floor(index / 8);
 					if (row % 2 === 0) {
@@ -27,7 +26,6 @@ export default component$(() => {
 								{index % 2 === 0 ? (
 									<div
 										class={`${styles.square} ${styles.lightSquare}`}
-										// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 										key={index}
 										onDragStart$={(e) => dragStart(e)}
 										onDragOver$={(e) => dragOver(e)}
@@ -38,7 +36,6 @@ export default component$(() => {
 								) : (
 									<div
 										class={`${styles.square} ${styles.darkSquare}`}
-										// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 										key={index}
 										onDragStart$={(e) => dragStart(e)}
 										onDragOver$={(e) => dragOver(e)}
@@ -55,7 +52,6 @@ export default component$(() => {
 								{index % 2 === 0 ? (
 									<div
 										class={`${styles.square} ${styles.darkSquare}`}
-										// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 										key={index}
 										onDragStart$={(e) => dragStart(e)}
 										onDragOver$={(e) => dragOver(e)}
@@ -66,7 +62,6 @@ export default component$(() => {
 								) : (
 									<div
 										class={`${styles.square} ${styles.lightSquare}`}
-										// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 										key={index}
 										onDragStart$={(e) => dragStart(e)}
 										onDragOver$={(e) => dragOver(e)}
@@ -81,7 +76,6 @@ export default component$(() => {
 				})}
 				<div class={styles.letters}>
 					{lettersDisplayed().map((letter, index) => (
-						// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						<div key={index}>{letter}</div>
 					))}
 				</div>
